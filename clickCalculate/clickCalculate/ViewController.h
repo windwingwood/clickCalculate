@@ -7,9 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
 
 @interface ViewController : NSViewController
 
+@property(nonatomic, strong)NSStatusItem * item;
+@property(nonatomic, strong)NSPopover * popover;
 
 @end
 

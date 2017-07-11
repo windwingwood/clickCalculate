@@ -11,7 +11,6 @@
 		97D3DA221F151913003FA1BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA211F151913003FA1BB /* main.m */; };
 		97D3DA251F151913003FA1BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA241F151913003FA1BB /* ViewController.m */; };
 		97D3DA271F151913003FA1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D3DA261F151913003FA1BB /* Assets.xcassets */; };
-		97D3DA2A1F151913003FA1BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D3DA281F151913003FA1BB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +21,6 @@
 		97D3DA231F151913003FA1BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		97D3DA241F151913003FA1BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		97D3DA261F151913003FA1BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		97D3DA291F151913003FA1BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97D3DA2B1F151913003FA1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +59,6 @@
 				97D3DA231F151913003FA1BB /* ViewController.h */,
 				97D3DA241F151913003FA1BB /* ViewController.m */,
 				97D3DA261F151913003FA1BB /* Assets.xcassets */,
-				97D3DA281F151913003FA1BB /* Main.storyboard */,
 				97D3DA2B1F151913003FA1BB /* Info.plist */,
 				97D3DA201F151913003FA1BB /* Supporting Files */,
 			);
@@ -135,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				97D3DA271F151913003FA1BB /* Assets.xcassets in Resources */,
-				97D3DA2A1F151913003FA1BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,17 +149,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		97D3DA281F151913003FA1BB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				97D3DA291F151913003FA1BB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		97D3DA2C1F151913003FA1BB /* Debug */ = {

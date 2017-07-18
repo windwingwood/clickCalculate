@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="calculateView">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fQ7-78-9ag">
+                    <rect key="frame" x="228" y="105" width="54" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Ypa-fZ-QFB"/>
+                        <constraint firstAttribute="height" constant="22" id="euk-MN-soh"/>
+                    </constraints>
+                    <buttonCell key="cell" type="bevel" title="清空" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RV8-gG-7Fj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y58-Zo-1rf">
+                    <rect key="frame" x="20" y="108" width="200" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="rnt-Vp-uGx"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="CcQ-us-2ey">
+                        <font key="font" size="14" name="Menlo-Regular"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="fQ7-78-9ag" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="OfR-iQ-wJ9"/>
+                <constraint firstAttribute="trailing" secondItem="fQ7-78-9ag" secondAttribute="trailing" constant="20" id="Tlk-oH-dpr"/>
+                <constraint firstItem="Y58-Zo-1rf" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="dtM-0O-NTl"/>
+                <constraint firstItem="fQ7-78-9ag" firstAttribute="leading" secondItem="Y58-Zo-1rf" secondAttribute="trailing" constant="10" id="g1T-WB-Qn8"/>
+                <constraint firstItem="Y58-Zo-1rf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="rZH-XB-m4a"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

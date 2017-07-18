@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9715CF4E1F1DF24D000D0B4D /* calculateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9715CF4C1F1DF24D000D0B4D /* calculateView.m */; };
+		9715CF4F1F1DF24D000D0B4D /* calculateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9715CF4D1F1DF24D000D0B4D /* calculateView.xib */; };
+		9715CF511F1E0532000D0B4D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9715CF501F1E0532000D0B4D /* MainMenu.xib */; };
 		97D3DA1F1F151913003FA1BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA1E1F151913003FA1BB /* AppDelegate.m */; };
 		97D3DA221F151913003FA1BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA211F151913003FA1BB /* main.m */; };
-		97D3DA251F151913003FA1BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA241F151913003FA1BB /* ViewController.m */; };
 		97D3DA271F151913003FA1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D3DA261F151913003FA1BB /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9715CF4B1F1DF24D000D0B4D /* calculateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = calculateView.h; path = View/calculateView.h; sourceTree = "<group>"; };
+		9715CF4C1F1DF24D000D0B4D /* calculateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = calculateView.m; path = View/calculateView.m; sourceTree = "<group>"; };
+		9715CF4D1F1DF24D000D0B4D /* calculateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = calculateView.xib; path = View/calculateView.xib; sourceTree = "<group>"; };
+		9715CF501F1E0532000D0B4D /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = View/MainMenu.xib; sourceTree = "<group>"; };
 		97D3DA1A1F151913003FA1BB /* clickCalculate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clickCalculate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D3DA1D1F151913003FA1BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		97D3DA1E1F151913003FA1BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		97D3DA211F151913003FA1BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		97D3DA231F151913003FA1BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		97D3DA241F151913003FA1BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		97D3DA261F151913003FA1BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97D3DA2B1F151913003FA1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -35,6 +39,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9715CF431F1DF0FD000D0B4D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9715CF441F1DF113000D0B4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9715CF4B1F1DF24D000D0B4D /* calculateView.h */,
+				9715CF4C1F1DF24D000D0B4D /* calculateView.m */,
+				9715CF4D1F1DF24D000D0B4D /* calculateView.xib */,
+				9715CF501F1E0532000D0B4D /* MainMenu.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9715CF451F1DF12C000D0B4D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 		97D3DA111F151913003FA1BB = {
 			isa = PBXGroup;
 			children = (
@@ -54,10 +83,11 @@
 		97D3DA1C1F151913003FA1BB /* clickCalculate */ = {
 			isa = PBXGroup;
 			children = (
+				9715CF451F1DF12C000D0B4D /* ViewModel */,
+				9715CF441F1DF113000D0B4D /* View */,
+				9715CF431F1DF0FD000D0B4D /* Model */,
 				97D3DA1D1F151913003FA1BB /* AppDelegate.h */,
 				97D3DA1E1F151913003FA1BB /* AppDelegate.m */,
-				97D3DA231F151913003FA1BB /* ViewController.h */,
-				97D3DA241F151913003FA1BB /* ViewController.m */,
 				97D3DA261F151913003FA1BB /* Assets.xcassets */,
 				97D3DA2B1F151913003FA1BB /* Info.plist */,
 				97D3DA201F151913003FA1BB /* Supporting Files */,
@@ -131,7 +161,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9715CF4F1F1DF24D000D0B4D /* calculateView.xib in Resources */,
 				97D3DA271F151913003FA1BB /* Assets.xcassets in Resources */,
+				9715CF511F1E0532000D0B4D /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +174,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97D3DA251F151913003FA1BB /* ViewController.m in Sources */,
 				97D3DA221F151913003FA1BB /* main.m in Sources */,
+				9715CF4E1F1DF24D000D0B4D /* calculateView.m in Sources */,
 				97D3DA1F1F151913003FA1BB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +279,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = clickCalculate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = Aplysia.clickCalculate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -259,6 +292,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = clickCalculate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = Aplysia.clickCalculate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -283,6 +317,7 @@
 				97D3DA301F151913003FA1BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

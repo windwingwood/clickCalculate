@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970208601F1F37D100EC5327 /* calculateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702085F1F1F37D100EC5327 /* calculateModel.m */; };
+		970208641F1F3AD800EC5327 /* WTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 970208631F1F3AD800EC5327 /* WTextField.m */; };
 		9715CF4E1F1DF24D000D0B4D /* calculateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9715CF4C1F1DF24D000D0B4D /* calculateView.m */; };
 		9715CF4F1F1DF24D000D0B4D /* calculateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9715CF4D1F1DF24D000D0B4D /* calculateView.xib */; };
 		9715CF511F1E0532000D0B4D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9715CF501F1E0532000D0B4D /* MainMenu.xib */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9702085E1F1F37D100EC5327 /* calculateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = calculateModel.h; path = ViewModel/calculateModel.h; sourceTree = "<group>"; };
+		9702085F1F1F37D100EC5327 /* calculateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = calculateModel.m; path = ViewModel/calculateModel.m; sourceTree = "<group>"; };
+		970208621F1F3AD800EC5327 /* WTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WTextField.h; path = Part/WTextField.h; sourceTree = "<group>"; };
+		970208631F1F3AD800EC5327 /* WTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WTextField.m; path = Part/WTextField.m; sourceTree = "<group>"; };
 		9715CF4B1F1DF24D000D0B4D /* calculateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = calculateView.h; path = View/calculateView.h; sourceTree = "<group>"; };
 		9715CF4C1F1DF24D000D0B4D /* calculateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = calculateView.m; path = View/calculateView.m; sourceTree = "<group>"; };
 		9715CF4D1F1DF24D000D0B4D /* calculateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = calculateView.xib; path = View/calculateView.xib; sourceTree = "<group>"; };
@@ -39,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		970208611F1F390700EC5327 /* Part */ = {
+			isa = PBXGroup;
+			children = (
+				970208621F1F3AD800EC5327 /* WTextField.h */,
+				970208631F1F3AD800EC5327 /* WTextField.m */,
+			);
+			name = Part;
+			sourceTree = "<group>";
+		};
 		9715CF431F1DF0FD000D0B4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +75,8 @@
 		9715CF451F1DF12C000D0B4D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9702085E1F1F37D100EC5327 /* calculateModel.h */,
+				9702085F1F1F37D100EC5327 /* calculateModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -83,6 +100,7 @@
 		97D3DA1C1F151913003FA1BB /* clickCalculate */ = {
 			isa = PBXGroup;
 			children = (
+				970208611F1F390700EC5327 /* Part */,
 				9715CF451F1DF12C000D0B4D /* ViewModel */,
 				9715CF441F1DF113000D0B4D /* View */,
 				9715CF431F1DF0FD000D0B4D /* Model */,
@@ -176,6 +194,8 @@
 			files = (
 				97D3DA221F151913003FA1BB /* main.m in Sources */,
 				9715CF4E1F1DF24D000D0B4D /* calculateView.m in Sources */,
+				970208601F1F37D100EC5327 /* calculateModel.m in Sources */,
+				970208641F1F3AD800EC5327 /* WTextField.m in Sources */,
 				97D3DA1F1F151913003FA1BB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

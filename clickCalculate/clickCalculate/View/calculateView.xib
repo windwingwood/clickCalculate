@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="calculateView">
             <connections>
+                <outlet property="cleanButton" destination="fQ7-78-9ag" id="2rg-Eg-4GU"/>
+                <outlet property="inputText" destination="Y58-Zo-1rf" id="9ws-df-hfE"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -27,16 +29,22 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="clickClean:" target="-2" id="vCc-TD-zV3"/>
+                    </connections>
                 </button>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y58-Zo-1rf">
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y58-Zo-1rf" customClass="WTextField">
                     <rect key="frame" x="20" y="108" width="200" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="rnt-Vp-uGx"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="CcQ-us-2ey">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="777" drawsBackground="YES" usesSingleLineMode="YES" id="CcQ-us-2ey">
                         <font key="font" size="14" name="Menlo-Regular"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <allowedInputSourceLocales>
+                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                        </allowedInputSourceLocales>
                     </textFieldCell>
                 </textField>
             </subviews>

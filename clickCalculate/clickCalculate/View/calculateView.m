@@ -17,6 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+    [_inputText setKeyUp:^(unsigned short code) {
+//        NSLog(@"%d",code);//return 36
+        if (code == 36) {
+            [_inputText setStringValue:[calculateModel calculateBy:_inputText.stringValue]];
+        }
+    }];
 }
+
+#pragma mark - 
+
+- (IBAction)clickClean:(id)sender {
+    [_inputText setStringValue:@""];
+}
+
 
 @end

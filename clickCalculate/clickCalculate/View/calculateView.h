@@ -7,7 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "WTextField.h"
+#import "calculateModel.h"
 
 @interface calculateView : NSViewController
+
+@property (weak) IBOutlet WTextField *inputText;
+@property (weak) IBOutlet NSButton *cleanButton;
 
 @end

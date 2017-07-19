@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "calculateView.h"
+#import <objc/runtime.h>
 
 @interface AppDelegate ()
 
@@ -23,6 +24,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     [self setStatusBar];
+    //[self setRuntime];
     //[self setMenu];
     
 }
@@ -33,6 +35,12 @@
 }
 
 #pragma mark - 
+
+- (void)setRuntime{
+    Method windowKeyDown = class_getClassMethod([NSWindow class], @selector(keyDown:));
+    Method textKeyDown = class_getClassMethod([WTextField class], @selector(keyDown:));
+    method_exchangeImplementations(windowKeyDown, textKeyDown);
+}
 
 - (void)setMenu{
     NSApplication * app = [NSApplication sharedApplication];

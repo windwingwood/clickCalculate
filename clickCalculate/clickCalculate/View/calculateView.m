@@ -38,5 +38,8 @@
 - (IBAction)clickDecimal:(id)sender {
     [_inputText setStringValue:[_model decimalFrom:_inputText.stringValue]];
 }
+- (IBAction)clickExit:(id)sender {
+    [[NSApplication sharedApplication] terminate:self];
+}
 
 @end

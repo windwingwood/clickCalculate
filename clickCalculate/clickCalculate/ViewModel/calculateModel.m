@@ -59,10 +59,9 @@ enum {
     if (stack.next == nil) return self;
     self.next = stack;
     data * temp = stack;
-    while (temp.next.next != nil) {
+    while (temp.next.next != nil && temp.sym != '(') {
         temp = temp.next;
     }
-    temp.next = nil;
     return temp;
 }
 
@@ -84,14 +83,15 @@ enum {
     data * dataStack = dataQueue;
     strcpy(str, [nss UTF8String]);
     //语句分析
+    temp = [self filter:p];
     do {
-        temp = [self filter:p];
         if (temp == CM_invalid) return @"式子不合法！";
         if (temp == CM_number) dataStack = [dataStack EnNum:[self getNumber:p]];
         if (temp == CM_push) tempStack = [tempStack pushSym:[self getSymbol:p]];
         if (temp == CM_pop) {
             dataStack = [dataStack EnFrom:tempStack];
-            tempStack = [data new];
+            tempStack = dataStack.next;
+            dataStack.next = nil;
         }
         if (temp == CM_check) {
             //比较栈中的符号优先级
@@ -100,36 +100,18 @@ enum {
                 tempStack = [tempStack pushSym:[self getSymbol:p]];
             } else {
                 temp = [self getSymbol:p];
-                if ([self symbolLevel:temp] <= [self symbolLevel:tempStack.sym]) {
+                if ([self symbolLevel:temp] >= [self symbolLevel:tempStack.sym]) {
                     //交换
                     dataStack = [dataStack EnSym:tempStack.sym];
                     tempStack.sym = temp;
                 } else tempStack = [tempStack pushSym:temp];
             }
         }
+        temp = [self filter:p];
     } while (temp);
+    [dataStack EnFrom:tempStack];
     //解析计算
     return [self calculate:dataQueue.next];
-}
-
-+ (double)getNumber:(char **)p {
-    double temp = 0;
-    double decimal = 10;
-    while (**p <= 57 && **p >= 48) {
-        temp *= 10;
-        temp += (**p) - 48;
-        (*p)++;
-    }
-    if (**p == 46) {
-        (*p)++;
-        while (**p <= 57 && **p >= 48) {
-            temp += ((**p) - 48)/decimal;
-            decimal *= 10;
-            (*p)++;
-        }
-    }
-//    NSLog(@"%lf",temp);
-    return temp;
 }
 
 + (char)filter:(char **)string {
@@ -182,6 +164,26 @@ enum {
     return 16;
 }
 
++ (double)getNumber:(char **)p {
+    double temp = 0;
+    double decimal = 10;
+    while (**p <= 57 && **p >= 48) {
+        temp *= 10;
+        temp += (**p) - 48;
+        (*p)++;
+    }
+    if (**p == 46) {
+        (*p)++;
+        while (**p <= 57 && **p >= 48) {
+            temp += ((**p) - 48)/decimal;
+            decimal *= 10;
+            (*p)++;
+        }
+    }
+//    NSLog(@"%lf",temp);
+    return temp;
+}
+
 + (char)getSymbol:(char **)string {
     char temp = **string;
     switch (temp) {
@@ -211,43 +213,45 @@ enum {
     double numStack[length/2];
     int level = 0;
     //开始计算
-//    dataQueue = dataQueue.next;
-//    numStack[level] = dataQueue.num;
-//    dataQueue = dataStack.next;
-//    dataStack = [self cSym:dataStack with:numStack[level]];
-    //输出
-    NSNumberFormatter * f = [NSNumberFormatter new];
-    f.minimumIntegerDigits = 1;
-    f.minimumFractionDigits = 0;
-    f.maximumFractionDigits = 10;
-    return [f stringFromNumber:@(dataQueue.num)];
-}
-
-+ (data *)cSym:(data *)dataStack with:(double)num{
-    switch (dataStack.sym) {
-        case '+':
-            dataStack.next.num += num;
-            break;
-        case '-':
-            if (dataStack.next.next.sym == '-') {
-                
+    while (dataQueue != nil) {
+        if (dataQueue.sym != 0) {
+            //符号运算
+            switch (dataQueue.sym) {
+                case '+':
+                    level--;
+                    numStack[level-1] += numStack[level];
+                    break;
+                case '-':
+                    level--;
+                    numStack[level-1] -= numStack[level];
+                    break;
+                case '*':
+                    level--;
+                    numStack[level-1] *= numStack[level];
+                    break;
+                case '/':
+                    level--;
+                    numStack[level-1] /= numStack[level];
+                    break;
+                case '%':
+                    level--;
+                    numStack[level-1] -= (int)(numStack[level-1] / numStack[level]) * numStack[level];
+                    break;
+                default:
+                    break;
             }
-            else dataStack.next.num -= num;
-            break;
-        case '*':
-            ;
-            break;
-        case '/':
-            ;
-            break;
-        case '%':
-            ;
-            break;
-            
-        default:
-            return dataStack;
+        } else {
+            numStack[level] = dataQueue.num;
+            level++;
+        }
+        dataQueue = dataQueue.next;
     }
-    return dataStack.next;
+    //输出
+    NSNumberFormatter * formatter = [NSNumberFormatter new];
+    formatter.minimumIntegerDigits = 1;
+    formatter.minimumFractionDigits = 0;
+    formatter.maximumFractionDigits = 10;
+    return [formatter stringFromNumber:@(numStack[0])];
 }
 
 @end

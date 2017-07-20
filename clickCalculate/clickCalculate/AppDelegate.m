@@ -24,7 +24,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     [self setStatusBar];
-    //[self setRuntime];
+//    [self setRuntime];
     //[self setMenu];
     
 }
@@ -37,9 +37,12 @@
 #pragma mark - 
 
 - (void)setRuntime{
-    Method windowKeyDown = class_getClassMethod([NSWindow class], @selector(keyDown:));
-    Method textKeyDown = class_getClassMethod([WTextField class], @selector(keyDown:));
+    Method windowKeyDown = class_getInstanceMethod([NSTextField class], @selector(keyDown:));
+    Method textKeyDown = class_getInstanceMethod([WTextField class], @selector(keyDown:));
     method_exchangeImplementations(windowKeyDown, textKeyDown);
+//    IMP myIMP = (IMP)method_getImplementation(textKeyDown);
+//    class_replaceMethod([NSResponder class], @selector(keyDown:), myIMP, "v@:@");
+    
 }
 
 - (void)setMenu{

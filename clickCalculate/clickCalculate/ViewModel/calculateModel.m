@@ -8,44 +8,62 @@
 
 #import "calculateModel.h"
 
-#pragma mark - 符号栈和数据栈
+enum {
+    CM_end      =  0,
+    CM_invalid  = -1,
+    CM_number   = -2,
+    CM_push     = -3,
+    CM_pop      = -4,
+    CM_check    = -5
+};
 
-@interface symbol : NSObject
+#pragma mark - 数据栈
 
-@property (nonatomic, assign) char data;
-@property (nonatomic, strong) symbol *next;
+@interface data : NSObject
 
-- (symbol *)push:(char)data;
+@property (nonatomic, assign) char   sym;
+@property (nonatomic, assign) double num;
+@property (nonatomic, strong) data *next;
+
+- (data *)pushSym:(char)ch;             //栈式压入，返回头
+- (data *)EnSym:(char)ch;               //队式压入，返回尾
+- (data *)EnNum:(double)num;            //队式压入，返回尾
+- (data *)EnFrom:(data *)stack;         //栈压入队，返回尾
 
 @end
 
-@implementation symbol
+@implementation data
 
-- (symbol *)push:(char)data{
-    symbol * head = [symbol new];
-    head.data = data;
+- (data *)pushSym:(char)ch {
+    data * head = [data new];
+    head.sym = ch;
     head.next = self;
     return head;
 }
 
-@end
-
-@interface number : NSObject
-
-@property (nonatomic, assign) double data;
-@property (nonatomic, strong) number *next;
-
-- (number *)push:(double)data;
-
-@end
-
-@implementation number
-
-- (number *)push:(double)data{
-    number * head = [number new];
-    head.data = data;
-    head.next = self;
+- (data *)EnSym:(char)ch {
+    data * head = [data new];
+    head.sym = ch;
+    self.next = head;
     return head;
+}
+
+- (data *)EnNum:(double)num {
+    data * head = [data new];
+    head.num = num;
+    self.next = head;
+    return head;
+}
+
+- (data *)EnFrom:(data *)stack {
+    if (stack.next == nil) return self;
+    self.next = stack;
+    data * temp = stack;
+    while (temp.next.next != nil) {
+        temp = temp.next;
+    }
+    temp.next = nil;
+    return temp;
 }
 
 @end
@@ -55,28 +73,43 @@
 @implementation calculateModel
 
 + (NSString *)calculateBy:(NSString *)nss{
-    //先实现最基本的加减乘除功能
+    if ([nss isEqualToString:@""]) return nss;
     //初始化
     char str[nss.length];
-    char * strP = str;
-    char ** p = &strP;
+    char *  strP = str;
+    char ** p    = &strP;
     char temp;
-    symbol * symStack = [symbol new];
-    number * numStack = [number new];
+    data * dataQueue = [data new];
+    data * tempStack = [data new];
+    data * dataStack = dataQueue;
     strcpy(str, [nss UTF8String]);
     //语句分析
     do {
-        temp = [calculateModel getSymbol:p];
-        if (temp == -1) return @"式子不合法！";
-        if (temp == -2) numStack = [numStack push:[calculateModel getNumber:p]];
-        else symStack = [symStack push:temp];
-        
+        temp = [self filter:p];
+        if (temp == CM_invalid) return @"式子不合法！";
+        if (temp == CM_number) dataStack = [dataStack EnNum:[self getNumber:p]];
+        if (temp == CM_push) tempStack = [tempStack pushSym:[self getSymbol:p]];
+        if (temp == CM_pop) {
+            dataStack = [dataStack EnFrom:tempStack];
+            tempStack = [data new];
+        }
+        if (temp == CM_check) {
+            //比较栈中的符号优先级
+            //高的话压入，低或者相同的话交换
+            if (tempStack.sym == CM_end) {
+                tempStack = [tempStack pushSym:[self getSymbol:p]];
+            } else {
+                temp = [self getSymbol:p];
+                if ([self symbolLevel:temp] <= [self symbolLevel:tempStack.sym]) {
+                    //交换
+                    dataStack = [dataStack EnSym:tempStack.sym];
+                    tempStack.sym = temp;
+                } else tempStack = [tempStack pushSym:temp];
+            }
+        }
     } while (temp);
-    //递归计算
-    NSNumberFormatter * f = [NSNumberFormatter new];
-    f.minimumFractionDigits = 0;
-    f.maximumFractionDigits = 10;
-    return [f stringFromNumber:@(numStack.data)];
+    //解析计算
+    return [self calculate:dataQueue.next];
 }
 
 + (double)getNumber:(char **)p {
@@ -95,8 +128,58 @@
             (*p)++;
         }
     }
-    NSLog(@"%lf",temp);
+//    NSLog(@"%lf",temp);
     return temp;
+}
+
++ (char)filter:(char **)string {
+    char temp = **string;
+    switch (temp) {
+        case '(':
+            return CM_push;
+        case ')':
+            (*string)++;
+            return CM_pop;
+        case '*':
+        case '/':
+        case '%':
+        case '+':
+        case '-':
+            return CM_check;
+        case '\0':
+            return CM_end;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '.':
+            return CM_number;
+        default:
+            break;
+    }
+    return CM_invalid;
+}
+
++ (int)symbolLevel:(char)ch {
+    switch (ch) {
+        case '*':
+        case '/':
+        case '%':
+            return 3;
+        case '+':
+        case '-':
+            return 4;
+            
+        default:
+            break;
+    }
+    return 16;
 }
 
 + (char)getSymbol:(char **)string {
@@ -109,25 +192,63 @@
         case '%':
         case '(':
         case ')':
-        case '\0':
             (*string)++;
             return temp;
-        case '0':
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9':
-        case '.':
-            return -2;
         default:
             break;
     }
-    return -1;
+    return CM_invalid;
+}
+
++ (NSString *)calculate:(data *)dataQueue{
+    //初始化
+    int length = 0;
+    data * temp = dataQueue;
+    while (temp.next != nil) {
+        length++;
+        temp = temp.next;
+    }
+    double numStack[length/2];
+    int level = 0;
+    //开始计算
+//    dataQueue = dataQueue.next;
+//    numStack[level] = dataQueue.num;
+//    dataQueue = dataStack.next;
+//    dataStack = [self cSym:dataStack with:numStack[level]];
+    //输出
+    NSNumberFormatter * f = [NSNumberFormatter new];
+    f.minimumIntegerDigits = 1;
+    f.minimumFractionDigits = 0;
+    f.maximumFractionDigits = 10;
+    return [f stringFromNumber:@(dataQueue.num)];
+}
+
++ (data *)cSym:(data *)dataStack with:(double)num{
+    switch (dataStack.sym) {
+        case '+':
+            dataStack.next.num += num;
+            break;
+        case '-':
+            if (dataStack.next.next.sym == '-') {
+                
+            }
+            else dataStack.next.num -= num;
+            break;
+        case '*':
+            ;
+            break;
+        case '/':
+            ;
+            break;
+        case '%':
+            ;
+            break;
+            
+        default:
+            return dataStack;
+    }
+    return dataStack.next;
 }
 
 @end
+

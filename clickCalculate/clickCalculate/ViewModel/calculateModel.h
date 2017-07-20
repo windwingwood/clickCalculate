@@ -8,7 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    CM_TypeDecimal = 2,
+    CM_TypeHex
+} CMType;
+
 @interface calculateModel : NSObject
+
+@property (nonatomic ,assign) CMType type;
 
 + (NSString *)calculateBy:(NSString *)string;
 

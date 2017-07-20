@@ -17,11 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+    _model = [calculateModel new];
     [_inputText setKeyUp:^(unsigned short code) {
         if (code == 36) {
-            NSLog(@"start");
             [_inputText setStringValue:[calculateModel calculateBy:_inputText.stringValue]];
-            NSLog(@"end");
         }
     }];
 }
@@ -32,5 +31,12 @@
     [_inputText setStringValue:@""];
 }
 
+- (IBAction)clickHex:(id)sender {
+    [_inputText setStringValue:[_model hexFrom:_inputText.stringValue]];
+}
+
+- (IBAction)clickDecimal:(id)sender {
+    [_inputText setStringValue:[_model decimalFrom:_inputText.stringValue]];
+}
 
 @end

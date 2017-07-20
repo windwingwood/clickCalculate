@@ -9,10 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "WTextField.h"
 #import "calculateModel.h"
+#import "calculateModel+numberSystem.h"
 
 @interface calculateView : NSViewController
 
+@property (nonatomic, strong) calculateModel * model;
 @property (weak) IBOutlet WTextField *inputText;
-@property (weak) IBOutlet NSButton *cleanButton;
 
 @end

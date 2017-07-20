@@ -71,6 +71,13 @@ enum {
 
 @implementation calculateModel
 
+- (instancetype)init{
+    if (self = [super init]) {
+        _type = CM_TypeDecimal;
+    }
+    return self;
+}
+
 + (NSString *)calculateBy:(NSString *)nss{
     if ([nss isEqualToString:@""]) return nss;
     //初始化

@@ -8,7 +8,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="calculateView">
             <connections>
-                <outlet property="cleanButton" destination="fQ7-78-9ag" id="2rg-Eg-4GU"/>
                 <outlet property="inputText" destination="Y58-Zo-1rf" id="9ws-df-hfE"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -38,7 +37,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="rnt-Vp-uGx"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="777" drawsBackground="YES" usesSingleLineMode="YES" id="CcQ-us-2ey">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" drawsBackground="YES" usesSingleLineMode="YES" id="CcQ-us-2ey">
                         <font key="font" size="14" name="Menlo-Regular"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -47,13 +46,37 @@
                         </allowedInputSourceLocales>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qZP-VZ-3PE">
+                    <rect key="frame" x="18" y="71" width="59" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="16进制" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="ZLs-5A-PGL">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickHex:" target="-2" id="IYa-01-rwP"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jLM-Yp-d5J">
+                    <rect key="frame" x="83" y="71" width="59" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="10进制" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="PlF-bz-5bb">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickDecimal:" target="-2" id="iGj-FN-3px"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstItem="qZP-VZ-3PE" firstAttribute="top" secondItem="Y58-Zo-1rf" secondAttribute="bottom" constant="10" id="5n0-l5-4mT"/>
                 <constraint firstItem="fQ7-78-9ag" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="OfR-iQ-wJ9"/>
+                <constraint firstItem="jLM-Yp-d5J" firstAttribute="leading" secondItem="qZP-VZ-3PE" secondAttribute="trailing" constant="10" id="OmP-0M-wUV"/>
                 <constraint firstAttribute="trailing" secondItem="fQ7-78-9ag" secondAttribute="trailing" constant="20" id="Tlk-oH-dpr"/>
+                <constraint firstItem="qZP-VZ-3PE" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Yw9-ic-beP"/>
                 <constraint firstItem="Y58-Zo-1rf" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="dtM-0O-NTl"/>
                 <constraint firstItem="fQ7-78-9ag" firstAttribute="leading" secondItem="Y58-Zo-1rf" secondAttribute="trailing" constant="10" id="g1T-WB-Qn8"/>
                 <constraint firstItem="Y58-Zo-1rf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="rZH-XB-m4a"/>
+                <constraint firstItem="jLM-Yp-d5J" firstAttribute="top" secondItem="Y58-Zo-1rf" secondAttribute="bottom" constant="10" id="yg6-l8-WAx"/>
             </constraints>
         </customView>
     </objects>

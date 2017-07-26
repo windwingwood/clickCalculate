@@ -15,7 +15,7 @@ typedef enum {
 
 @interface calculateModel : NSObject
 
-@property (nonatomic ,assign) CMType type;
+@property (nonatomic, assign) CMType type;
 
 + (NSString *)calculateBy:(NSString *)string;
 

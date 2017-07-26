@@ -13,6 +13,7 @@
 		9715CF4F1F1DF24D000D0B4D /* calculateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9715CF4D1F1DF24D000D0B4D /* calculateView.xib */; };
 		9715CF511F1E0532000D0B4D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9715CF501F1E0532000D0B4D /* MainMenu.xib */; };
 		971694751F20F60F0040278D /* calculateModel+numberSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 971694741F20F60F0040278D /* calculateModel+numberSystem.m */; };
+		9731F9611F288EC200C2B3AE /* NetworkStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9731F9601F288EC200C2B3AE /* NetworkStatsModel.m */; };
 		97D3DA1F1F151913003FA1BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA1E1F151913003FA1BB /* AppDelegate.m */; };
 		97D3DA221F151913003FA1BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA211F151913003FA1BB /* main.m */; };
 		97D3DA271F151913003FA1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D3DA261F151913003FA1BB /* Assets.xcassets */; };
@@ -29,6 +30,8 @@
 		9715CF501F1E0532000D0B4D /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = View/MainMenu.xib; sourceTree = "<group>"; };
 		971694731F20F60F0040278D /* calculateModel+numberSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "calculateModel+numberSystem.h"; path = "ViewModel/calculateModel+numberSystem.h"; sourceTree = "<group>"; };
 		971694741F20F60F0040278D /* calculateModel+numberSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "calculateModel+numberSystem.m"; path = "ViewModel/calculateModel+numberSystem.m"; sourceTree = "<group>"; };
+		9731F95F1F288EC200C2B3AE /* NetworkStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkStatsModel.h; path = ViewModel/NetworkStatsModel.h; sourceTree = "<group>"; };
+		9731F9601F288EC200C2B3AE /* NetworkStatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkStatsModel.m; path = ViewModel/NetworkStatsModel.m; sourceTree = "<group>"; };
 		97D3DA1A1F151913003FA1BB /* clickCalculate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clickCalculate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D3DA1D1F151913003FA1BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		97D3DA1E1F151913003FA1BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 				9702085F1F1F37D100EC5327 /* calculateModel.m */,
 				971694731F20F60F0040278D /* calculateModel+numberSystem.h */,
 				971694741F20F60F0040278D /* calculateModel+numberSystem.m */,
+				9731F95F1F288EC200C2B3AE /* NetworkStatsModel.h */,
+				9731F9601F288EC200C2B3AE /* NetworkStatsModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				97D3DA221F151913003FA1BB /* main.m in Sources */,
 				9715CF4E1F1DF24D000D0B4D /* calculateView.m in Sources */,
 				970208601F1F37D100EC5327 /* calculateModel.m in Sources */,
+				9731F9611F288EC200C2B3AE /* NetworkStatsModel.m in Sources */,
 				970208641F1F3AD800EC5327 /* WTextField.m in Sources */,
 				97D3DA1F1F151913003FA1BB /* AppDelegate.m in Sources */,
 			);

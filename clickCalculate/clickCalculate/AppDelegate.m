@@ -8,10 +8,10 @@
 
 #import "AppDelegate.h"
 #import "calculateView.h"
+#import "NetworkStatsModel.h"
 #import <objc/runtime.h>
-#import <net/if.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <NetworkStats>
 
 @property (nonatomic, strong) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSPopover *popover;
@@ -45,19 +45,21 @@
     
 }
 
-- (void)setStatusBar{
+- (void)setStatusBar {
     //初始化 - 可变宽度
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     //添加事件
     _statusItem.target = self;
     _statusItem.button.action = @selector(clickItem:);
     //设置标题
-    _statusItem.title = @"0kbs";
+    _statusItem.title = @"0KB/s";
     //设置弹出页
     [self setPopover];
+    //设置流量监控
+    [self setNetworkStats];
 }
 
-- (void)setPopover{
+- (void)setPopover {
     _calView = [calculateView new];
     _popover = [NSPopover new];
     _popover.behavior = NSPopoverBehaviorTransient;
@@ -65,8 +67,20 @@
     _popover.contentViewController = _calView;
 }
 
-- (void)clickItem:(NSStatusBarButton *)button{
+- (void)clickItem:(NSStatusBarButton *)button {
     [_popover showRelativeToRect:button.bounds ofView:button preferredEdge:NSRectEdgeMaxY];
+}
+
+- (void)setNetworkStats {
+    NetworkStatsModel * instance = [NetworkStatsModel sharedInstance];
+    instance.delegate = self;
+    [instance start];
+}
+
+#pragma mark -
+
+- (void)flowDidRefrush:(NSString *)download with:(NSString *)upload {
+    _statusItem.title = download;
 }
 
 @end

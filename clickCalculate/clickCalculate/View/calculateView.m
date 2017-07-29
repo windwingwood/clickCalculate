@@ -38,6 +38,13 @@
 - (IBAction)clickDecimal:(id)sender {
     [_inputText setStringValue:[_model decimalFrom:_inputText.stringValue]];
 }
+
+- (IBAction)clickDark:(id)sender {
+    static NSString *const source = @"tell application \"System Events\" \ntell appearance preferences to set dark mode to not dark mode \nend tell";
+    NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:source];
+    [appleScript executeAndReturnError:nil];
+}
+
 - (IBAction)clickExit:(id)sender {
     [[NSApplication sharedApplication] terminate:self];
 }

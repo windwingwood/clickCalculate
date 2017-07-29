@@ -12,7 +12,7 @@
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 
-#define RefrushTime 2.0
+static const float refrushTime = 2.0;
 
 typedef struct{
     uint32 iFlow;
@@ -51,7 +51,7 @@ void setflow(flow * a, flow old) {
 
 - (void)start {
     setflow(&flowLast, [self refrushNetworkflow]);
-    NSTimer * t = [NSTimer timerWithTimeInterval:RefrushTime target:self selector:@selector(loopRefrushNetworkStats) userInfo:nil repeats:YES];
+    NSTimer * t = [NSTimer timerWithTimeInterval:refrushTime target:self selector:@selector(loopRefrushNetworkStats) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:t forMode:NSRunLoopCommonModes];
 }
 
@@ -66,7 +66,7 @@ void setflow(flow * a, flow old) {
  * 输出最高位的数据
  */
 - (NSString *)bytesConvert:(uint32_t)bytes {
-    bytes /= RefrushTime;
+    bytes /= refrushTime;
     if (bytes < 1024)
         return @"0KB/s";
     else if (bytes < 1024*1024)
@@ -98,6 +98,12 @@ void setflow(flow * a, flow old) {
             continue;
         
         //判断是不是本地回路，相同返回0，name大于lo则返回大于0的值
+        /*
+         * en0      wifi
+         * bridge0
+         * awdl0    airdrop
+         * utun0    虚拟网卡
+         */
         if (strncmp(ifa->ifa_name, "lo", 2)) {
             struct if_data *if_data = (struct if_data *)ifa->ifa_data;
             

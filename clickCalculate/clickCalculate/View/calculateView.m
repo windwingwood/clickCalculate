@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do view setup here.
     _model = [calculateModel new];
     [_inputText setKeyUp:^(unsigned short code) {
         if (code == 36) {
@@ -39,6 +38,14 @@
     [_inputText setStringValue:[_model decimalFrom:_inputText.stringValue]];
 }
 
+/**
+ 启动/关闭 暗黑模式
+ 
+ 通过appleScript实现对系统设置的操作。
+ appleScript真好用。
+
+ @param sender 没什么意义的sender
+ */
 - (IBAction)clickDark:(id)sender {
     static NSString *const source = @"tell application \"System Events\" \ntell appearance preferences to set dark mode to not dark mode \nend tell";
     NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:source];

@@ -19,8 +19,20 @@
 
 @property (nonatomic, weak) id delegate;
 
+/**
+ 获得一个模块单例
+
+ @return 流量监控模块单例
+ */
 + (instancetype)sharedInstance;
 
+/**
+ 启动流量监控
+ 
+ 会通过代理回调反馈数据。
+ 
+ 这个方法在实现stop之前，只能执行一次。
+ */
 - (void)start;
 
 @end

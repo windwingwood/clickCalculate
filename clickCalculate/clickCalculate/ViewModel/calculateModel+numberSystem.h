@@ -11,7 +11,19 @@
 
 @interface calculateModel (numberSystem)
 
+/**
+ 十进制转十六进制数
+
+ @param decimal 十进制字符串
+ @return 十六进制字符串
+ */
 - (NSString *)hexFrom:(NSString *)decimal;
+/**
+ 十六进制转十进制数
+
+ @param hex 十六进制字符串，支持FF或0xFF两种形式
+ @return 十进制字符串
+ */
 - (NSString *)decimalFrom:(NSString *)hex;
 
 

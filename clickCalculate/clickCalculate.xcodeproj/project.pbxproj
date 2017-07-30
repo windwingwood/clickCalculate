@@ -32,7 +32,7 @@
 		971694741F20F60F0040278D /* calculateModel+numberSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "calculateModel+numberSystem.m"; path = "ViewModel/calculateModel+numberSystem.m"; sourceTree = "<group>"; };
 		9731F95F1F288EC200C2B3AE /* NetworkStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkStatsModel.h; path = ViewModel/NetworkStatsModel.h; sourceTree = "<group>"; };
 		9731F9601F288EC200C2B3AE /* NetworkStatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkStatsModel.m; path = ViewModel/NetworkStatsModel.m; sourceTree = "<group>"; };
-		97D3DA1A1F151913003FA1BB /* clickCalculate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clickCalculate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97D3DA1A1F151913003FA1BB /* 状态栏计算器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "状态栏计算器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D3DA1D1F151913003FA1BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		97D3DA1E1F151913003FA1BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		97D3DA211F151913003FA1BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		97D3DA1B1F151913003FA1BB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97D3DA1A1F151913003FA1BB /* clickCalculate.app */,
+				97D3DA1A1F151913003FA1BB /* 状态栏计算器.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 			);
 			name = clickCalculate;
 			productName = clickCalculate;
-			productReference = 97D3DA1A1F151913003FA1BB /* clickCalculate.app */;
+			productReference = 97D3DA1A1F151913003FA1BB /* 状态栏计算器.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -313,7 +313,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = Aplysia.clickCalculate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "状态栏计算器";
 			};
 			name = Debug;
 		};
@@ -326,7 +326,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = Aplysia.clickCalculate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "状态栏计算器";
 			};
 			name = Release;
 		};

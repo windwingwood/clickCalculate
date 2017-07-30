@@ -61,9 +61,11 @@ void setflow(flow * a, flow old) {
     setflow(&flowLast, temp);
 }
 
-/*
- * 单位转换函数
- * 输出最高位的数据
+/**
+ 单位转换函数
+
+ @param bytes 字节为单位的统计数据
+ @return 能显示的最高位单位表示网速的字符串
  */
 - (NSString *)bytesConvert:(uint32_t)bytes {
     bytes /= refrushTime;
@@ -99,7 +101,7 @@ void setflow(flow * a, flow old) {
         
         //判断是不是本地回路，相同返回0，name大于lo则返回大于0的值
         /*
-         * en0      wifi
+         * en0      wifi iphoneUSB CAD
          * bridge0
          * awdl0    airdrop
          * utun0    虚拟网卡

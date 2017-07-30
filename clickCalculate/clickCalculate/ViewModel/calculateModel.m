@@ -211,7 +211,7 @@ enum {
 
 + (NSString *)calculate:(data *)dataQueue{
     //初始化
-    int length = 0;
+    int length = 2;
     data * temp = dataQueue;
     while (temp.next != nil) {
         length++;

@@ -37,7 +37,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="rnt-Vp-uGx"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" drawsBackground="YES" usesSingleLineMode="YES" id="CcQ-us-2ey">
+                    <textFieldCell key="cell" lineBreakMode="truncatingHead" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="right" usesSingleLineMode="YES" id="CcQ-us-2ey">
                         <font key="font" size="14" name="Menlo-Regular"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  clickCalculate
+
+  Created by 月砂 on 2017/8/1.
+  Copyright © 2017年 月砂. All rights reserved.
+*/
+
+"clean"         = "Clean";
+"decimal"       = "Decimal";
+"hex"           = "Hex";
+"RGBchange"     = "RGB Change";
+
+"darkmode"      = "Dark Mode";
+"preferences"   = "Preferences...";
+"exit"          = "Quit";

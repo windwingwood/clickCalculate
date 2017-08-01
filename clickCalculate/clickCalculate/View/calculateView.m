@@ -9,6 +9,13 @@
 #import "calculateView.h"
 
 @interface calculateView ()
+@property (weak) IBOutlet NSButton *cleanButton;
+@property (weak) IBOutlet NSButton *hexButton;
+@property (weak) IBOutlet NSButton *decimalButton;
+@property (weak) IBOutlet NSButton *RGBButton;
+@property (weak) IBOutlet NSButton *darkModeButton;
+@property (weak) IBOutlet NSButton *preferencesButton;
+@property (weak) IBOutlet NSButton *exitButton;
 
 @end
 
@@ -16,12 +23,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setLocalizations];
     _model = [calculateModel new];
     [_inputText setKeyUp:^(unsigned short code) {
         if (code == 36) {
             [_inputText setStringValue:[calculateModel calculateBy:_inputText.stringValue]];
         }
     }];
+}
+
+- (void)setLocalizations {
+    _cleanButton.title = NSLocalizedString(@"clean", nil);
+    _hexButton.title = NSLocalizedString(@"hex", nil);
+    _decimalButton.title = NSLocalizedString(@"decimal", nil);
+    _RGBButton.title = NSLocalizedString(@"RGBchange", nil);
+    _darkModeButton.title = NSLocalizedString(@"darkmode", nil);
+    _preferencesButton.title = NSLocalizedString(@"preferences", nil);
+    _exitButton.title = NSLocalizedString(@"exit", nil);
 }
 
 #pragma mark - 

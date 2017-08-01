@@ -8,7 +8,14 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="calculateView">
             <connections>
+                <outlet property="RGBButton" destination="X1L-Bg-f3M" id="Oe2-bo-tS7"/>
+                <outlet property="cleanButton" destination="fQ7-78-9ag" id="X62-Af-M92"/>
+                <outlet property="darkModeButton" destination="Rmz-n7-7OY" id="2w8-rN-lWq"/>
+                <outlet property="decimalButton" destination="jLM-Yp-d5J" id="kHx-Gf-6l3"/>
+                <outlet property="exitButton" destination="JTp-E3-eFK" id="Djo-Mg-JpT"/>
+                <outlet property="hexButton" destination="qZP-VZ-3PE" id="oKz-xK-8WZ"/>
                 <outlet property="inputText" destination="Y58-Zo-1rf" id="9ws-df-hfE"/>
+                <outlet property="preferencesButton" destination="3WY-Nd-hQI" id="vU3-wj-kMf"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -19,12 +26,11 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fQ7-78-9ag">
-                    <rect key="frame" x="228" y="105" width="54" height="27"/>
+                    <rect key="frame" x="223" y="105" width="59" height="27"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="Ypa-fZ-QFB"/>
                         <constraint firstAttribute="height" constant="22" id="euk-MN-soh"/>
                     </constraints>
-                    <buttonCell key="cell" type="bevel" title="清空" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RV8-gG-7Fj">
+                    <buttonCell key="cell" type="bevel" title="Clean" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RV8-gG-7Fj">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -33,7 +39,7 @@
                     </connections>
                 </button>
                 <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y58-Zo-1rf" customClass="WTextField">
-                    <rect key="frame" x="20" y="108" width="200" height="22"/>
+                    <rect key="frame" x="20" y="108" width="195" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="rnt-Vp-uGx"/>
                     </constraints>
@@ -47,8 +53,8 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qZP-VZ-3PE">
-                    <rect key="frame" x="18" y="71" width="65" height="29"/>
-                    <buttonCell key="cell" type="bevel" title="16进制" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="ZLs-5A-PGL">
+                    <rect key="frame" x="18" y="71" width="48" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="Hex" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="ZLs-5A-PGL">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -57,8 +63,8 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jLM-Yp-d5J">
-                    <rect key="frame" x="89" y="71" width="65" height="29"/>
-                    <buttonCell key="cell" type="bevel" title="10进制" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="PlF-bz-5bb">
+                    <rect key="frame" x="72" y="71" width="73" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="Decimal" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="PlF-bz-5bb">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -67,8 +73,8 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JTp-E3-eFK">
-                    <rect key="frame" x="231" y="7" width="51" height="29"/>
-                    <buttonCell key="cell" type="bevel" title="退出" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="ag4-bu-Mv8">
+                    <rect key="frame" x="235" y="7" width="47" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="Exit" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="ag4-bu-Mv8">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -77,15 +83,15 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3WY-Nd-hQI">
-                    <rect key="frame" x="18" y="7" width="78" height="29"/>
-                    <buttonCell key="cell" type="bevel" title="偏好设置" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="6Kx-KI-AZT">
+                    <rect key="frame" x="18" y="7" width="109" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="Preferences..." bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="6Kx-KI-AZT">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rmz-n7-7OY">
-                    <rect key="frame" x="18" y="39" width="51" height="29"/>
-                    <buttonCell key="cell" type="bevel" title="暗黑" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="4Kp-rg-yal">
+                    <rect key="frame" x="18" y="39" width="91" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="Dark Mode" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="4Kp-rg-yal">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -94,8 +100,8 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X1L-Bg-f3M">
-                    <rect key="frame" x="160" y="71" width="78" height="29"/>
-                    <buttonCell key="cell" type="bevel" title="RGB转换" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="JrF-fB-EGg">
+                    <rect key="frame" x="151" y="71" width="51" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="RGB" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="JrF-fB-EGg">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

@@ -14,6 +14,8 @@
 		9715CF511F1E0532000D0B4D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9715CF501F1E0532000D0B4D /* MainMenu.xib */; };
 		971694751F20F60F0040278D /* calculateModel+numberSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 971694741F20F60F0040278D /* calculateModel+numberSystem.m */; };
 		9731F9611F288EC200C2B3AE /* NetworkStatsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9731F9601F288EC200C2B3AE /* NetworkStatsModel.m */; };
+		973A606C1F30D163003536EA /* infoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 973A606A1F30D163003536EA /* infoPlist.strings */; };
+		973A60721F30D304003536EA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 973A60701F30D304003536EA /* Localizable.strings */; };
 		97D3DA1F1F151913003FA1BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA1E1F151913003FA1BB /* AppDelegate.m */; };
 		97D3DA221F151913003FA1BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA211F151913003FA1BB /* main.m */; };
 		97D3DA271F151913003FA1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D3DA261F151913003FA1BB /* Assets.xcassets */; };
@@ -32,6 +34,11 @@
 		971694741F20F60F0040278D /* calculateModel+numberSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "calculateModel+numberSystem.m"; path = "ViewModel/calculateModel+numberSystem.m"; sourceTree = "<group>"; };
 		9731F95F1F288EC200C2B3AE /* NetworkStatsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkStatsModel.h; path = ViewModel/NetworkStatsModel.h; sourceTree = "<group>"; };
 		9731F9601F288EC200C2B3AE /* NetworkStatsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkStatsModel.m; path = ViewModel/NetworkStatsModel.m; sourceTree = "<group>"; };
+		973A606B1F30D163003536EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/infoPlist.strings; sourceTree = "<group>"; };
+		973A606D1F30D178003536EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/infoPlist.strings; sourceTree = "<group>"; };
+		973A606E1F30D18B003536EA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/infoPlist.strings"; sourceTree = "<group>"; };
+		973A60711F30D304003536EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		973A60731F30D308003536EA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		97D3DA1A1F151913003FA1BB /* 状态栏计算器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "状态栏计算器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D3DA1D1F151913003FA1BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		97D3DA1E1F151913003FA1BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +125,8 @@
 				97D3DA1E1F151913003FA1BB /* AppDelegate.m */,
 				97D3DA261F151913003FA1BB /* Assets.xcassets */,
 				97D3DA2B1F151913003FA1BB /* Info.plist */,
+				973A606A1F30D163003536EA /* infoPlist.strings */,
+				973A60701F30D304003536EA /* Localizable.strings */,
 				97D3DA201F151913003FA1BB /* Supporting Files */,
 			);
 			path = clickCalculate;
@@ -173,6 +182,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 97D3DA111F151913003FA1BB;
 			productRefGroup = 97D3DA1B1F151913003FA1BB /* Products */;
@@ -189,7 +199,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				973A60721F30D304003536EA /* Localizable.strings in Resources */,
 				9715CF4F1F1DF24D000D0B4D /* calculateView.xib in Resources */,
+				973A606C1F30D163003536EA /* infoPlist.strings in Resources */,
 				97D3DA271F151913003FA1BB /* Assets.xcassets in Resources */,
 				9715CF511F1E0532000D0B4D /* MainMenu.xib in Resources */,
 			);
@@ -214,11 +226,34 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		973A606A1F30D163003536EA /* infoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				973A606B1F30D163003536EA /* Base */,
+				973A606D1F30D178003536EA /* en */,
+				973A606E1F30D18B003536EA /* zh-Hans */,
+			);
+			name = infoPlist.strings;
+			sourceTree = "<group>";
+		};
+		973A60701F30D304003536EA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				973A60711F30D304003536EA /* en */,
+				973A60731F30D308003536EA /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		97D3DA2C1F151913003FA1BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -267,6 +302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

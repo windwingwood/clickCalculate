@@ -26,5 +26,12 @@
  */
 - (NSString *)decimalFrom:(NSString *)hex;
 
+/**
+ 我在开发的时候质疑自己，这个RGB转换是不是和十六进制转换功能重复了。
+
+ @param rgbString 可以是#FFAABB也可以是255,100,87
+ @return 转换之后的字符串
+ */
+- (NSString *)changeRGBFrom:(NSString *)rgbString;
 
 @end

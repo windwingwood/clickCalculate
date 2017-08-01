@@ -93,17 +93,29 @@
                         <action selector="clickDark:" target="-2" id="2MK-Sa-nyO"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X1L-Bg-f3M">
+                    <rect key="frame" x="160" y="71" width="78" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="RGB转换" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="JrF-fB-EGg">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clickRGB:" target="-2" id="tUT-hr-Zwj"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="qZP-VZ-3PE" firstAttribute="top" secondItem="Y58-Zo-1rf" secondAttribute="bottom" constant="10" id="5n0-l5-4mT"/>
                 <constraint firstAttribute="bottom" secondItem="3WY-Nd-hQI" secondAttribute="bottom" constant="10" id="97T-yh-T6C"/>
                 <constraint firstItem="Rmz-n7-7OY" firstAttribute="top" secondItem="qZP-VZ-3PE" secondAttribute="bottom" constant="8" id="Bcr-fm-Kwe"/>
+                <constraint firstItem="X1L-Bg-f3M" firstAttribute="leading" secondItem="jLM-Yp-d5J" secondAttribute="trailing" constant="10" id="HB0-Tg-C8q"/>
                 <constraint firstItem="fQ7-78-9ag" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="OfR-iQ-wJ9"/>
                 <constraint firstItem="jLM-Yp-d5J" firstAttribute="leading" secondItem="qZP-VZ-3PE" secondAttribute="trailing" constant="10" id="OmP-0M-wUV"/>
                 <constraint firstAttribute="trailing" secondItem="fQ7-78-9ag" secondAttribute="trailing" constant="20" id="Tlk-oH-dpr"/>
                 <constraint firstItem="3WY-Nd-hQI" firstAttribute="top" secondItem="Rmz-n7-7OY" secondAttribute="bottom" constant="8" id="VZS-Iu-BC5"/>
                 <constraint firstAttribute="bottom" secondItem="JTp-E3-eFK" secondAttribute="bottom" constant="10" id="YDI-Lv-79V"/>
                 <constraint firstItem="qZP-VZ-3PE" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Yw9-ic-beP"/>
+                <constraint firstItem="X1L-Bg-f3M" firstAttribute="top" secondItem="Y58-Zo-1rf" secondAttribute="bottom" constant="10" id="dGd-q7-iZZ"/>
                 <constraint firstItem="Y58-Zo-1rf" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="dtM-0O-NTl"/>
                 <constraint firstItem="Rmz-n7-7OY" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="fbl-Qh-LWk"/>
                 <constraint firstItem="fQ7-78-9ag" firstAttribute="leading" secondItem="Y58-Zo-1rf" secondAttribute="trailing" constant="10" id="g1T-WB-Qn8"/>

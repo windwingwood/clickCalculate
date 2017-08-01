@@ -38,6 +38,10 @@
     [_inputText setStringValue:[_model decimalFrom:_inputText.stringValue]];
 }
 
+- (IBAction)clickRGB:(id)sender {
+    [_inputText setStringValue:[_model changeRGBFrom:_inputText.stringValue]];
+}
+
 /**
  启动/关闭 暗黑模式
  

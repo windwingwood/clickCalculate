@@ -15,6 +15,9 @@ typedef enum {
 
 @interface calculateModel : NSObject
 
+@property (readonly) NSString *Error1;
+@property (readonly) NSString *Error2;
+
 @property (nonatomic, assign) CMType type;
 
 /**
@@ -27,6 +30,6 @@ typedef enum {
  @param string 算式字符串
  @return 结果字符串
  */
-+ (NSString *)calculateBy:(NSString *)string;
+- (NSString *)calculateBy:(NSString *)string;
 
 @end

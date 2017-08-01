@@ -27,7 +27,7 @@
     _model = [calculateModel new];
     [_inputText setKeyUp:^(unsigned short code) {
         if (code == 36) {
-            [_inputText setStringValue:[calculateModel calculateBy:_inputText.stringValue]];
+            [_inputText setStringValue:[_model calculateBy:_inputText.stringValue]];
         }
     }];
 }
@@ -69,7 +69,7 @@
  @param sender 没什么意义的sender
  */
 - (IBAction)clickDark:(id)sender {
-    static NSString *const source = @"tell application \"System Events\" \ntell appearance preferences to set dark mode to not dark mode \nend tell";
+    static NSString *source = @"tell application \"System Events\" \ntell appearance preferences to set dark mode to not dark mode \nend tell";
     NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:source];
     [appleScript executeAndReturnError:nil];
 }

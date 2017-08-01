@@ -73,12 +73,14 @@ enum {
 
 - (instancetype)init{
     if (self = [super init]) {
+        _Error1 = NSLocalizedString(@"error1", nil);
+        _Error2 = NSLocalizedString(@"error2", nil);
         _type = CM_TypeDecimal;
     }
     return self;
 }
 
-+ (NSString *)calculateBy:(NSString *)nss{
+- (NSString *)calculateBy:(NSString *)nss{
     if ([nss isEqualToString:@""]) return nss;
     //初始化
     char str[nss.length];
@@ -92,7 +94,7 @@ enum {
     //语句分析
     temp = [self filter:p];
     do {
-        if (temp == CM_invalid) return @"式子不合法！";
+        if (temp == CM_invalid) return _Error2;
         if (temp == CM_number) dataStack = [dataStack EnNum:[self getNumber:p]];
         if (temp == CM_push) tempStack = [tempStack pushSym:[self getSymbol:p]];
         if (temp == CM_pop) {
@@ -121,7 +123,7 @@ enum {
     return [self calculate:dataQueue.next];
 }
 
-+ (char)filter:(char **)string {
+- (char)filter:(char **)string {
     char temp = **string;
     switch (temp) {
         case '(':
@@ -155,7 +157,7 @@ enum {
     return CM_invalid;
 }
 
-+ (int)symbolLevel:(char)ch {
+- (int)symbolLevel:(char)ch {
     switch (ch) {
         case '*':
         case '/':
@@ -171,7 +173,7 @@ enum {
     return 16;
 }
 
-+ (double)getNumber:(char **)p {
+- (double)getNumber:(char **)p {
     double temp = 0;
     double decimal = 10;
     while (**p <= 57 && **p >= 48) {
@@ -191,7 +193,7 @@ enum {
     return temp;
 }
 
-+ (char)getSymbol:(char **)string {
+- (char)getSymbol:(char **)string {
     char temp = **string;
     switch (temp) {
         case '+':
@@ -209,7 +211,7 @@ enum {
     return CM_invalid;
 }
 
-+ (NSString *)calculate:(data *)dataQueue{
+- (NSString *)calculate:(data *)dataQueue{
     //初始化
     int length = 2;
     data * temp = dataQueue;

@@ -13,7 +13,7 @@
 - (NSString *)hexFrom:(NSString *)nss {
     char *p = NULL;
     unsigned long num = strtoul([nss UTF8String], &p, 10);
-    if (*p != 0) return @"格式错误";
+    if (*p != 0) return self.Error1;
     self.type = CM_TypeHex;
     return [NSString stringWithFormat:@"0x%lX",num];
 }
@@ -21,7 +21,7 @@
 - (NSString *)decimalFrom:(NSString *)hex {
     char *p = NULL;
     unsigned long num = strtoul([hex UTF8String], &p, 16);
-    if (*p != 0) return @"格式错误";
+    if (*p != 0) return self.Error1;
     self.type = CM_TypeDecimal;
     return [NSString stringWithFormat:@"%lu",num];
 }
@@ -58,7 +58,7 @@ char writeHexNumber(unsigned long num) {
         green = strtoul(&p[1], &p, 10);
         blue = strtoul(&p[1], &p, 10);
         if (*p == 0 && red <=255 && green <=255 && blue <=255) {
-            char op[8] = "#123456";
+            char op[8] = "#000000";
             int i = 7;
             op[--i] = writeHexNumber(blue % 16);
             op[--i] = writeHexNumber(blue / 16);
@@ -69,7 +69,7 @@ char writeHexNumber(unsigned long num) {
             return [NSString stringWithUTF8String:op];
         }
     }
-    return @"格式错误";
+    return self.Error1;
 }
 
 @end

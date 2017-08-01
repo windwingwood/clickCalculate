@@ -14,3 +14,6 @@
 "darkmode"      = "Dark Mode";
 "preferences"   = "Preferences...";
 "exit"          = "Quit";
+
+"error1"        = "Wrong Format";
+"error2"        = "Formula is not legal";

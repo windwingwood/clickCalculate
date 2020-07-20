@@ -7,8 +7,16 @@
 //
 
 #import "calculateView.h"
+#import "WTextField.h"
+#import "calculateModel.h"
+#import "calculateModel+numberSystem.h"
+#import "JSExcuteModel.h"
 
 @interface calculateView ()
+
+@property (nonatomic, strong) calculateModel * model;
+@property (weak) IBOutlet WTextField *inputText;
+
 @property (weak) IBOutlet NSButton *cleanButton;
 @property (weak) IBOutlet NSButton *hexButton;
 @property (weak) IBOutlet NSButton *decimalButton;
@@ -25,9 +33,12 @@
     [super viewDidLoad];
     [self setLocalizations];
     _model = [calculateModel new];
+    
+    __weak typeof(self) weakSelf = self;
     [_inputText setKeyUp:^(unsigned short code) {
         if (code == 36) {
-            [_inputText setStringValue:[_model calculateBy:_inputText.stringValue]];
+//            [weakSelf.inputText setStringValue:[weakSelf.model calculateBy:weakSelf.inputText.stringValue]];
+            [weakSelf.inputText setStringValue:[[JSExcuteModel shareInstance] calculateBy:weakSelf.inputText.stringValue]];
         }
     }];
 }
@@ -46,6 +57,7 @@
 
 - (IBAction)clickClean:(id)sender {
     [_inputText setStringValue:@""];
+    [[JSExcuteModel shareInstance] clean];
 }
 
 - (IBAction)clickHex:(id)sender {

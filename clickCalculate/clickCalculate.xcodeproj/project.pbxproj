@@ -19,6 +19,7 @@
 		97D3DA1F1F151913003FA1BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA1E1F151913003FA1BB /* AppDelegate.m */; };
 		97D3DA221F151913003FA1BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D3DA211F151913003FA1BB /* main.m */; };
 		97D3DA271F151913003FA1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D3DA261F151913003FA1BB /* Assets.xcassets */; };
+		97E16EC524C5DC7600F525D4 /* JSExcuteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E16EC424C5DC7600F525D4 /* JSExcuteModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		97D3DA211F151913003FA1BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97D3DA261F151913003FA1BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97D3DA2B1F151913003FA1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97E16EC324C5DC7600F525D4 /* JSExcuteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSExcuteModel.h; path = ViewModel/JSExcuteModel.h; sourceTree = "<group>"; };
+		97E16EC424C5DC7600F525D4 /* JSExcuteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JSExcuteModel.m; path = ViewModel/JSExcuteModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				971694741F20F60F0040278D /* calculateModel+numberSystem.m */,
 				9731F95F1F288EC200C2B3AE /* NetworkStatsModel.h */,
 				9731F9601F288EC200C2B3AE /* NetworkStatsModel.m */,
+				97E16EC324C5DC7600F525D4 /* JSExcuteModel.h */,
+				97E16EC424C5DC7600F525D4 /* JSExcuteModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"zh-Hans",
@@ -220,6 +226,7 @@
 				970208601F1F37D100EC5327 /* calculateModel.m in Sources */,
 				9731F9611F288EC200C2B3AE /* NetworkStatsModel.m in Sources */,
 				970208641F1F3AD800EC5327 /* WTextField.m in Sources */,
+				97E16EC524C5DC7600F525D4 /* JSExcuteModel.m in Sources */,
 				97D3DA1F1F151913003FA1BB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +355,7 @@
 				INFOPLIST_FILE = clickCalculate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Aplysia.clickCalculate;
 				PRODUCT_NAME = "状态栏计算器";
 			};
@@ -361,6 +369,7 @@
 				INFOPLIST_FILE = clickCalculate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Aplysia.clickCalculate;
 				PRODUCT_NAME = "状态栏计算器";
 			};

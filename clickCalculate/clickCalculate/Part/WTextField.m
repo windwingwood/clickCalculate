@@ -8,9 +8,13 @@
 
 #import "WTextField.h"
 
-@implementation WTextField {
-    void (^keyUp)(unsigned short code);
-}
+@interface WTextField ()
+
+@property (nonatomic, copy) void (^keyUp)(unsigned short code);
+
+@end
+
+@implementation WTextField
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
@@ -18,11 +22,13 @@
 }
 
 - (void)keyUp:(NSEvent *)event {
-    if(keyUp != nil)keyUp(event.keyCode);
+    if (self.keyUp) {
+        self.keyUp(event.keyCode);
+    }
 }
 
 - (void)setKeyUp:(void(^)(unsigned short code))callback {
-    keyUp = callback;
+    _keyUp = callback;
 }
 
 @end

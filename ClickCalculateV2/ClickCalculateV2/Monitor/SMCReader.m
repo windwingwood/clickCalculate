@@ -27,7 +27,7 @@
     CGFloat temperature = 0.0;
     
     // 尝试读取不同的温度传感器
-    NSArray *temList = @[@"TCXC", @"TC0C", @"TC1C", @"TC0P", @"TC0D", @"TC0H"];
+    NSArray *temList = @[@"TCXC", @"TC0C", @"TC1C", @"TC0P", @"TC0D", @"TC0H", @"Tp00", @"Tp0O"];
     NSArray *fanList = @[@"F0Ac", @"F1Ac"];
     
     for (NSString *key in temList) {
@@ -49,7 +49,7 @@
             self.fanSpeed = [result integerValue];
             break;
         } else {
-            NSLog(@"无法读取 %@", key);
+//            NSLog(@"无法读取 %@", key);
         }
     }
     
@@ -146,6 +146,10 @@
         (strcmp(dataType, DATATYPE_UINT32) == 0)) {
         UInt32 uint = [self strToInt:bytes forSize:dataSize inBase:10];
         snprintf(str, 15, "%u ", (unsigned int)uint);
+    }
+    else if (strcmp(dataType, DATATYPE_FLT) == 0) {
+        float f_val = *((float*)bytes);
+        snprintf(str, 15, "%.2f ", f_val);
     }
     else if (strcmp(dataType, DATATYPE_FP1F) == 0 && dataSize == 2)
         snprintf(str, 15, "%.5f ", ntohs(*(UInt16*)bytes) / 32768.0);

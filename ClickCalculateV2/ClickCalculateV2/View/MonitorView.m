@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSTextField *bottomLabel;
 
+@property (nonatomic, assign) BOOL isDarkMode;
+
 @end
 
 @implementation MonitorViewItem
@@ -54,10 +56,10 @@
 //    [NSColor.redColor set];
 //    NSRectFill(self.bounds);
     
-    [NSColor.blackColor set];
-    NSBezierPath.defaultLineWidth = 0.5;
-    [NSBezierPath strokeLineFromPoint:CGPointMake(8, self.bounds.size.height-8)
-                              toPoint:CGPointMake(self.bounds.size.width-8, self.bounds.size.height-8)];
+//    [NSColor.labelColor set];
+//    NSBezierPath.defaultLineWidth = 0.5;
+//    [NSBezierPath strokeLineFromPoint:CGPointMake(8, self.bounds.size.height-8)
+//                              toPoint:CGPointMake(self.bounds.size.width-8, self.bounds.size.height-8)];
 }
 
 - (NSTextField *)makeLabel:(NSRect)frame {

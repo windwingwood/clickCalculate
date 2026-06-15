@@ -42,6 +42,8 @@
 #define DATATYPE_CHARSTAR     "ch8*"
 #define DATATYPE_PWM          "{pwm"
 
+#define DATATYPE_FLT          "flt "
+
 typedef struct SMCKeyData_vers_t { //used to identify SMC firmware version
     char                  major;
     char                  minor;

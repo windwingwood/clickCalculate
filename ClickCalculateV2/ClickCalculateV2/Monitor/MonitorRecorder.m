@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) NSArray *config;
 
+@property (nonatomic, strong) NSMutableArray<NSString *> *cacheData;
+
 @property (nonatomic, strong) NSTimer *recordTimer;
 
 @end
@@ -35,6 +37,16 @@
     return rd;
 }
 
+- (NSString *)recordWithType:(MonitorType)type {
+    for (NSInteger i=0; i<self.config.count; i++) {
+        MonitorType ctype = [self.config[i] unsignedIntegerValue];
+        if (ctype == type) {
+            return [self.cacheData objectAtIndex:i];
+        }
+    }
+    return nil;
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -48,9 +60,11 @@
 - (void)loadConfig {
     NSArray *defaultConfig = @[@(MonitorType_Temperature), @(MonitorType_Upload), @(MonitorType_Download)];
     self.config = defaultConfig;
+    self.cacheData = [NSMutableArray new];
     for (NSNumber *typeNumber in self.config) {
         MonitorType type = [typeNumber unsignedIntegerValue];
         [self.view addItemWithTitle:[self titleWithType:type]];
+        [self.cacheData addObject:@"--"];
     }
     
     self.network = [NetworkSpeed new];
@@ -72,7 +86,9 @@
 //            [self.view updateItem:uploadSpeed atIndex:i];
         }
         else if (type == MonitorType_Temperature) {
-            [self.view updateItem:[NSString stringWithFormat:@"%.1f°", self.smc.temperature] atIndex:i];
+            NSString *temperaText = [NSString stringWithFormat:@"%.1f°", self.smc.temperature];
+            [self.view updateItem:temperaText atIndex:i];
+            [self.cacheData replaceObjectAtIndex:i withObject:temperaText];
         }
     }
 }
@@ -82,9 +98,11 @@
         MonitorType type = [self.config[i] unsignedIntegerValue];
         if (type == MonitorType_Upload) {
             [self.view updateItem:uploadSpeed atIndex:i];
+            [self.cacheData replaceObjectAtIndex:i withObject:uploadSpeed];
         }
         else if (type == MonitorType_Download) {
             [self.view updateItem:downloadSpeed atIndex:i];
+            [self.cacheData replaceObjectAtIndex:i withObject:downloadSpeed];
         }
     }
 }

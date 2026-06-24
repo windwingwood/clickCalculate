@@ -27,6 +27,8 @@ typedef NS_ENUM(NSUInteger, MonitorType) {
 
 + (instancetype)recorder;
 
+- (NSString *)recordWithType:(MonitorType)type;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "MainView.h"
 #import "MonitorRecorder.h"
+#import "Interface.h"
 
 // test
 #import "HardwareUsage.h"
@@ -32,6 +33,20 @@
     // Insert code here to initialize your application
     NSLog(@"启动");
     [self setupStatusBar];
+    
+    [Interface sharedInstace].provider = ^NSString * _Nonnull(NSString * _Nonnull path) {
+        if ([path isEqualToString:@"/UploadSpeed"]) {
+            return [NSString stringWithFormat:@"上传: %@", [[MonitorRecorder recorder] recordWithType:MonitorType_Upload]];
+        }
+        else if ([path isEqualToString:@"/DownloadSpeed"]) {
+            return [NSString stringWithFormat:@"下载: %@", [[MonitorRecorder recorder] recordWithType:MonitorType_Download]];
+        }
+        else if ([path isEqualToString:@"/Temperature"]) {
+            return [NSString stringWithFormat:@"温度: %@", [[MonitorRecorder recorder] recordWithType:MonitorType_Temperature]];
+        }
+        return nil;
+    };
+    [[Interface sharedInstace] start:10888];
 }
 
 - (void)setupStatusBar {
